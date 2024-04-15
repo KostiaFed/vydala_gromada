@@ -1,0 +1,29 @@
+@import "bootstrap";
+
+html {
+  font-family: "Artegra Sans Extended", sans-serif;
+}
+
+footer {
+  background-color: #131313;
+  position: absolute; 
+  bottom: 0; 
+  left: 0; 
+  z-index: 10;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.footer_sides {
+  margin-right: 200px;
+  margin-left: 200px;
+}
+
+.footer_links {
+  text-align: left;
+}
+
+.gromada-green {
+  background-color: #ACBE1A;
+}
