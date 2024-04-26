@@ -15,11 +15,13 @@
 #
 #  index_books_on_user_id  (user_id)
 #
-class Book < ApplicationRecord
-  has_one_attached :cover
+FactoryBot.define do
+  factory :book do
+    name { Faker::Book.title }
+    description { Faker::Lorem.paragraph }
 
-  belongs_to :user
+    cover { Rack::Test::UploadedFile.new(Dir[Rails.root.join("test", "files", "covers", "*")].sample) }
 
-  has_many :books_genres
-  has_many :genres, through: :books_genres
+    user
+  end
 end

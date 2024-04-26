@@ -6,10 +6,8 @@ html {
 
 footer {
   background-color: #131313;
-  position: absolute; 
   bottom: 0; 
   left: 0; 
-  z-index: 10;
   width: 100%;
   text-align: center;
   color: white;
@@ -24,6 +22,40 @@ footer {
   text-align: left;
 }
 
-.gromada-green {
+.border-gromada-green {
+  border: 1px solid #7e8c12;
+  border-radius: 6px;
+}
+
+.text-gromada-green {
+  color: #879616;
+}
+
+.bg-gromada-green {
   background-color: #ACBE1A;
+}
+
+.catalog-page {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.content-block {
+  width: 90%;
+}
+
+.book-block {
+  width: 380px;
+}
+
+.book-cover {
+  width: 150px;
+}
+
+.image-block {
+  text-align: center;
+}
+
+.tag {
+  margin-right: 5px;
 }
