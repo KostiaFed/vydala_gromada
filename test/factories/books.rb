@@ -18,7 +18,7 @@
 FactoryBot.define do
   factory :book do
     name { Faker::Book.title }
-    description { Faker::Lorem.paragraph }
+    description { Faker::Lorem.paragraph_by_chars(number: 1000) }
 
     cover { Rack::Test::UploadedFile.new(Dir[Rails.root.join("test", "files", "covers", "*")].sample) }
 
