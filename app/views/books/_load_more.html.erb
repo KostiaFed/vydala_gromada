@@ -1,0 +1,9 @@
+<% if @pagy.next.present? %>
+  <div class="d-flex justify-content-center">
+    <%= button_to books_path, params: { page: @pagy.next }, method: :get, "data-turbo-stream": true, class: "btn btn-outline-secondary py-2 px-4 text-dark" do %>
+      <img src="page.svg"/>
+      Показати більше
+      <img src="page.svg"/>
+    <% end %>
+  </div>
+<% end %>

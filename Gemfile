@@ -35,3 +35,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# Use Redis for Action Cable
+gem "redis", "~> 4.0"

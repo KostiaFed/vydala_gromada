@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  root "books#index"
+  root :to => redirect("books#index")
 
-  resources :books, only: [:index]
+  resources :books do
+    collection do
+      post :index
+    end
+  end
 end
