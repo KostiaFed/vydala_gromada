@@ -1,0 +1,15 @@
+<div id="<%= dom_id book %>" class="d-flex justify-content-center border book-block mb-2">
+  <div class="m-3 content-block">
+    <div class="image-block">
+      <%= image_tag book.cover, class: "book-cover" %>
+    </div>
+    <h5><%= book.name %></h5>
+    <div class="mb-2 text-gromada-green"><%= book.user.full_name %></div>
+    <div class="d-flex flex-wrap">
+      <% book.genres.all.each do |genre| %>
+        <div class="px-1 tag border-gromada-green text-gromada-green"><%= genre.name %></div>
+      <% end %>
+    </div>
+    <p><%= book.description %></p>
+  </div>
+</div>

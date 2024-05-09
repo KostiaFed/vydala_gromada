@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+  username: myuser
+  password: 12345678
+
+development:
+  <<: *default
+  database: vg_dev
+
+test:
+  <<: *default
+  database: vg_test
+
+staging:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %> 

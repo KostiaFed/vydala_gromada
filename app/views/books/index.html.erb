@@ -1,0 +1,12 @@
+<div class="p-4 catalog-page">
+  <h4 class="mb-2">Популярні збори</h4>
+  <div id="books" class="d-flex flex-wrap justify-content-between">
+    <% @books.each do |book| %>
+      <%= render book %>
+    <% end %>
+  </div>
+
+  <div id="next_link">
+    <%= render "books/load_more" %>
+  </div>
+</div>

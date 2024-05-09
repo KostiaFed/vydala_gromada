@@ -1,0 +1,7 @@
+<%= turbo_stream.append "books" do %>
+  <%= render partial: "books/book", collection: @books %>
+<% end %>
+
+<%= turbo_stream.update "next_link" do %>
+  <%= render "books/load_more" %>
+<% end %>
