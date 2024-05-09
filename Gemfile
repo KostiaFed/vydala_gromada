@@ -18,6 +18,7 @@ gem "sass-rails"
 gem "sassc-rails"
 gem "bootstrap"
 gem "jquery-rails"
+gem "pagy"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
