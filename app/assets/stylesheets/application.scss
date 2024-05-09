@@ -44,10 +44,6 @@ footer {
   width: 90%;
 }
 
-.book-block {
-  width: 380px;
-}
-
 .book-cover {
   width: 150px;
 }
@@ -58,4 +54,14 @@ footer {
 
 .tag {
   margin-right: 5px;
+}
+
+.book-block {
+  width: 24%;
+}
+
+@media screen and (max-width: 950px) {
+  .book-block {
+    width: 49%;
+  }
 }
