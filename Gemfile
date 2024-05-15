@@ -18,6 +18,7 @@ gem "bootstrap"
 gem "jquery-rails"
 gem "pagy"
 gem "redis", "~> 4.0"
+gem "image_processing", "~> 1.0"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]

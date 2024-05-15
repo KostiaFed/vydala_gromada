@@ -1,10 +1,10 @@
 <div class="p-4 catalog-page">
   <h4 class="mb-2">Популярні збори</h4>
-  <div id="books" class="d-flex flex-wrap justify-content-between">
-    <% @books.each do |book| %>
-      <%= render book %>
+  <%= turbo_frame_tag :books, class: "d-flex flex-wrap justify-content-between", src: books_url(format: :turbo_stream, page: params[:page]), loading: :lazy do %>
+    <% 8.times do %>
+      <%= render "book_placeholder" %>
     <% end %>
-  </div>
+  <% end %>
 
   <div id="next_link">
     <%= render "books/load_more" %>

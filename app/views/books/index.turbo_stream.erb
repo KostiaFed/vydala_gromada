@@ -1,5 +1,11 @@
-<%= turbo_stream.append "books" do %>
-  <%= render partial: "books/book", collection: @books %>
+<% if @pagy.page == 1 %>
+  <%= turbo_stream.update "books" do %>
+    <%= render partial: "books/book", collection: @books %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.append "books" do %>
+    <%= render partial: "books/book", collection: @books %>
+  <% end %>
 <% end %>
 
 <%= turbo_stream.update "next_link" do %>
