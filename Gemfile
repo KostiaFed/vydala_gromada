@@ -17,6 +17,7 @@ gem "sassc-rails"
 gem "bootstrap"
 gem "jquery-rails"
 gem "pagy"
+gem "redis", "~> 4.0"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
@@ -33,6 +34,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
-# Use Redis for Action Cable
-gem "redis", "~> 4.0"
