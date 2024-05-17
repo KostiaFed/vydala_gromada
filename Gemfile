@@ -19,6 +19,7 @@ gem "jquery-rails"
 gem "pagy"
 gem "redis", "~> 4.0"
 gem "image_processing", "~> 1.0"
+gem "devise", "~> 4.9"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
