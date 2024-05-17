@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root :to => redirect("books#index")
+  root :to => redirect("books")
 
   resources :books do
     collection do
