@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
 
   root "books#index"
 
-  resources :books do
-    collection do
-      post :index
-    end
-  end
+  resources :books
 end

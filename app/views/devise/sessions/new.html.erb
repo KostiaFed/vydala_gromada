@@ -1,26 +1,31 @@
-<h2>Log in</h2>
+<div class="d-flex flex-wrap justify-content-center"><h1>Вхід до акаунту</h1></div>
+<div class="d-flex flex-wrap justify-content-center"><span class="fs-5 text-gromada-black mb-4">Увійдіть щоб продовжити</span></div>
 
+<div class="d-flex flex-wrap justify-content-center mb-4">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div style="width: 500px;">
+    <span class="fs-4 text-gromada-black">Електронна пошта</span><br/>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control input-lg" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div>
+    <span class="fs-4 text-gromada-black">Пароль</span><br/>
+    <%= f.password_field :password, autocomplete: "current-password", class: "form-control input-lg mb-2"%>
   </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <%= link_to "Забули пароль?", new_password_path(resource_name), class: "text-gromada-green" %><br />
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="d-flex flex-wrap justify-content-center">
+    <div class="my-3">
+      <%= f.submit "Увійти", class: "border-0 fs-5 fw-bold bg-gromada-light-green text-gromada-green py-2 px-5" %>
+    </div>
+  </div>
+  <div class="d-flex flex-wrap justify-content-center">
+    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <span>Немає акаунту? <%= link_to "Зареєструватись", new_registration_path(resource_name), class: "text-gromada-green" %></span>
+    <% end %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+</div>
