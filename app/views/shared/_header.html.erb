@@ -12,8 +12,13 @@
   </div>
   <div>
     <form>
-      <a class="btn mr-2" href="#">Увійти</a>
-      <a class="btn bg-gromada-green" href="#">Видати книгу</a>
+      <% if user_signed_in? %> 
+        <div> Welcome <%= current_user.name %> </div> 
+        <%= button_to "Вийти", destroy_user_session_path, method: :delete, class: "btn mr-2"%> 
+        <%= button_to "Видати книгу", root_path, class: "btn bg-gromada-green"%>
+      <% else %>
+        <%= button_to "Увійти", new_user_session_path, class: "btn mr-2" %> 
+      <% end %>
     </form>
   </div>
 </nav>
