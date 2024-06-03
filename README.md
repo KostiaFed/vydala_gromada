@@ -5,3 +5,5 @@ Run ```sudo apt install imagemagick libvips```, ```bundle```, ```rails db:drop d
 For testing and development ```rails db:seed```
 
 ```mailcatcher``` to test mailer.
+
+When production change config/environments/production.rb "example.com" to domain.

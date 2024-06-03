@@ -30,9 +30,11 @@ Rails.application.configure do
   config.assets.quiet = true
   config.action_controller.raise_on_missing_callback_actions = true
 
-  config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.asset_host = "http://localhost:3000"
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {address: "localhost", port: 1025}
+  config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
 end
+
+Rails.application.routes.default_url_options[:host] = "http://localhost"
+Rails.application.routes.default_url_options[:port] = 3000
