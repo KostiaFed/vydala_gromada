@@ -12,8 +12,28 @@
 
   <%= render "shared/header" %>
   <body>
-    <p class="notice"><%= notice %></p> 
-    <p class="alert"><%= alert %></p> 
+    <% unless notice.nil? %>
+    <label class="flash">
+      <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+      <div class="alert alert-info">
+        <span class="alertClose">X</span>
+        <span class="alertText"><%= notice %>
+        <br class="clear"/></span>
+      </div>
+    </label>
+    <% end %>
+
+    <% unless alert.nil? %>
+    <label class="flash">
+      <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+      <div class="alert alert-danger">
+        <span class="alertClose">X</span>
+        <span class="alertText"><%= alert %>
+        <br class="clear"/></span>
+      </div>
+    </label>
+    <% end %>
+
     <%= yield %>
   </body>
   <%= render "shared/footer" %>

@@ -18,6 +18,46 @@ a {
   text-decoration: none;
 }
 
+.flash {
+  position: absolute;
+  right: 10px;
+  animation-name: alert-animation;
+  animation-duration: 1s;
+  cursor: pointer;
+}
+
+@keyframes alert-animation {
+  from { right: -500px; }
+  to { right: 10px; }
+}
+
+.alertCheckbox {
+  display: none;
+}
+
+:checked + .alert {
+  display: none;
+}
+
+.alertText {
+  display: table;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
+}
+
+.alertClose {
+  float: right;
+  padding-top: 5px;
+  padding-left: 5px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.clear {
+  clear: both;
+}
+
 .footer_sides {
   margin-right: 200px;
   margin-left: 200px;
