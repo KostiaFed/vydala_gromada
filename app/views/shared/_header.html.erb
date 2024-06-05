@@ -5,7 +5,7 @@
     </a>
   </div>
   <div>
-    <a class="btn mr-2" href="#">Книги</a>
+    <%= link_to "Книги", root_path %>
     <a class="btn mr-2" href="#">Як це працює?</a>
     <a class="btn mr-2" href="#">Про нас</a>
     <a class="btn mr-2" href="#">Контакти</a>
@@ -13,10 +13,9 @@
   <div class="d-flex flex-wrap justify-content-center" data-turbo="false">
     <% if user_signed_in? %> 
       <%= button_to "Вийти", destroy_user_session_path, method: :delete, class: "btn mr-2"%> 
-      <%= button_to "Видати книгу", root_path, class: "btn bg-gromada-green"%>
     <% else %>
       <%= link_to "Увійти", new_user_session_path, class: "btn mr-2" %>
-      <%= link_to "Видати книгу", new_user_session_path, class: "btn bg-gromada-green"%>
     <% end %>
+    <%= link_to "Видати книгу", new_book_path, class: "btn bg-gromada-green"%>
   </div>
 </nav>

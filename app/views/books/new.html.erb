@@ -1,0 +1,8 @@
+<div data-turbo="false">
+  <%= render "shared/error_messages", resource: @book %>
+  <%= form_for :book, url: books_path(@book) do |f| %>
+    <%= f.text_field :name %><br />
+    <%= f.text_field :description %><br />
+    <%= f.submit %>
+  <% end %>
+</div>

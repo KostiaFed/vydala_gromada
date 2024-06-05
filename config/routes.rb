@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    passwords: 'users/passwords'
   }
 
   root "books#index"
 
-  resources :books
+  resources :books, only: [:index, :show, :new, :create]
 end
