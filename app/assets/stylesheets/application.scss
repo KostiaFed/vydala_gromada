@@ -88,6 +88,10 @@ a {
   background-color: #E8EACC;
 }
 
+.bg-gromada-light-gray {
+  background-color: #FAFAFA;
+}
+
 .catalog-page {
   margin-left: 10%;
   margin-right: 10%;
@@ -112,6 +116,33 @@ a {
 
 .book-block {
   width: 24%;
+}
+
+.create-book-section {
+  width: 250px;
+}
+
+.selected-line {
+  height: 5px;
+}
+
+.click-svg {
+  width: 30px;
+}
+
+#book:checked + label > .selected-line,
+#rewards:checked + label > .selected-line,
+#contacts:checked + label > .selected-line
+{
+  display: block !important;
+}
+
+// https://isotropic.co/tool/hex-color-to-css-filter/
+#book:checked + label > div > .click-svg,
+#rewards:checked + label > div > .click-svg,
+#contacts:checked + label > div > .click-svg
+{
+  filter: invert(57%) sepia(74%) saturate(451%) hue-rotate(28deg) brightness(85%) contrast(99%);
 }
 
 @media screen and (max-width: 950px) {
