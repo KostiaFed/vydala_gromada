@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
 
-  root "books#index"
+  root 'books#index'
 
-  resources :books, only: [:index, :show, :new, :create]
+  resources :books, only: %i[index show new create]
 end

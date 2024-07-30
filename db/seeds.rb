@@ -7,4 +7,4 @@ Book.all.each do |book|
   end
 end
 
-FactoryBot.create(:user, email: "email@example.org", password: "password", confirmed_at: DateTime.now)
+FactoryBot.create(:user, email: 'email@example.org', password: 'password', confirmed_at: DateTime.now)

@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: %i[new create]
 
   def index
     @pagy, @books = pagy_countless(Book.all, items: 8)
@@ -22,7 +22,7 @@ class BooksController < ApplicationController
     if current_user.books << Book.new(book_params)
       redirect_to book_path(current_user.books.last.id)
     else
-      render "new"
+      render 'new'
     end
   end
 
