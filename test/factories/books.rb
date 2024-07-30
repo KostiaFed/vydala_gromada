@@ -20,7 +20,7 @@ FactoryBot.define do
     name { Faker::Book.title }
     description { Faker::Lorem.paragraph_by_chars(number: 1000) }
 
-    cover { Rack::Test::UploadedFile.new(Rails.root.join(ImageProcessing::MiniMagick.source(Rack::Test::UploadedFile.new(Dir[Rails.root.join("test", "files", "covers", "*")].sample)).resize_to_limit(150, 200).convert("jpeg").call.path)) }
+    cover { Rack::Test::UploadedFile.new(MiniMagick::Image.new(Dir[Rails.root.join("test", "files", "covers", "*")].sample).resize("150x200>").path) }
 
     user
   end

@@ -6,3 +6,5 @@ Book.all.each do |book|
     book.genres << Genre.all.sample
   end
 end
+
+FactoryBot.create(:user, email: "email@example.org", password: "password", confirmed_at: DateTime.now)
