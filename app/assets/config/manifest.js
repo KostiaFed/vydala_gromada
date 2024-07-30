@@ -3,3 +3,4 @@
 //= link_tree ../fonts
 //= link application.css
 //= link application.js
+//= link_tree ../../javascript/controllers

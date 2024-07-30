@@ -3,10 +3,13 @@
 # Table name: books
 #
 #  id                 :bigint           not null, primary key
+#  book_url           :string
 #  collect_ended_at   :datetime
 #  collect_started_at :datetime
-#  description        :string
+#  long_description   :string
 #  name               :string
+#  short_description  :string
+#  video_url          :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  user_id            :bigint
@@ -18,7 +21,7 @@
 FactoryBot.define do
   factory :book do
     name { Faker::Book.title }
-    description { Faker::Lorem.paragraph_by_chars(number: 1000) }
+    short_description { Faker::Lorem.paragraph_by_chars(number: 1000) }
 
     cover do
       Rack::Test::UploadedFile.new(MiniMagick::Image.new(Dir[Rails.root.join('test', 'files', 'covers',
