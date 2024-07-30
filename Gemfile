@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 ruby '3.3.2'
 
 gem 'bootsnap', require: false
-gem 'bootstrap'
 gem 'devise', '~> 4.9'
 gem 'image_processing', '~> 1.2'
 gem 'importmap-rails'

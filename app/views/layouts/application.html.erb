@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full">
   <head>
     <title>VydalaGromada</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,31 +11,36 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
-  <%= render "shared/header" %>
-  <body>
-    <% unless notice.nil? %>
-    <label class="flash">
-      <input type="checkbox" class="alertCheckbox" autocomplete="off" />
-      <div class="alert alert-info">
-        <span class="alertClose">X</span>
-        <span class="alertText"><%= notice %>
-        <br class="clear"/></span>
-      </div>
-    </label>
-    <% end %>
+  <body class="flex flex-col h-full">
+    <div class="flex-1 flex flex-col">
+      <header class="container mx-auto">
+        <%= render "shared/header" %>
+      </header>
+      <main class="container mx-auto">
+        <% unless notice.nil? %>
+          <label class="flash">
+            <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+            <div class="alert alert-info">
+              <span class="alertClose">X</span>
+              <span class="alertText"><%= notice %>
+              <br class="clear"/></span>
+            </div>
+          </label>
+          <% end %>
 
-    <% unless alert.nil? %>
-    <label class="flash">
-      <input type="checkbox" class="alertCheckbox" autocomplete="off" />
-      <div class="alert alert-danger">
-        <span class="alertClose">X</span>
-        <span class="alertText"><%= alert %>
-        <br class="clear"/></span>
-      </div>
-    </label>
-    <% end %>
-
-    <%= yield %>
+          <% unless alert.nil? %>
+          <label class="flash">
+            <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+            <div class="alert alert-danger">
+              <span class="alertClose">X</span>
+              <span class="alertText"><%= alert %>
+              <br class="clear"/></span>
+            </div>
+          </label>
+          <% end %>
+      <%= yield %>
+      </main>
+    </div>
+    <%= render "shared/footer" %>
   </body>
-  <%= render "shared/footer" %>
 </html>

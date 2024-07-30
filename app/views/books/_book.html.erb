@@ -1,11 +1,11 @@
-<%= link_to book_path(book), class:"d-flex justify-content-center border book-block mb-2" do %>
+<%= link_to book_path(book), class:"flex place-content-center border book-block mb-2" do %>
   <div class="m-3 content-block">
     <div class="image-block">
       <%= image_tag book.cover.variant(resize_to_limit: [150, 200]), class: "book-cover mb-2", loading: :lazy, alt:"Обкладинка" %>
     </div>
     <h5><%= book.name %></h5>
     <div class="mb-2 text-gromada-green"><%= book.user.full_name %></div>
-    <div class="d-flex flex-wrap mb-2">
+    <div class="flex flex-wrap mb-2">
       <% book.genres.all.each do |genre| %>
         <div class="px-1 tag border-gromada-green text-gromada-green"><%= genre.name %></div>
       <% end %>

@@ -1,6 +1,6 @@
-<div class="p-4 catalog-page">
+<div>
   <h4 class="mb-2">Популярні збори</h4>
-  <%= turbo_frame_tag :books, class: "d-flex flex-wrap justify-content-between", src: books_url(format: :turbo_stream, page: params[:page]), loading: :lazy do %>
+  <%= turbo_frame_tag :books, class: "flex flex-wrap place-content-between", src: books_url(format: :turbo_stream, page: params[:page]), loading: :lazy do %>
     <% 8.times do %>
       <%= render "book_placeholder" %>
     <% end %>

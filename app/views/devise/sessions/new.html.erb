@@ -1,7 +1,7 @@
-<div class="d-flex flex-wrap justify-content-center"><h1>Вхід до акаунту</h1></div>
-<div class="d-flex flex-wrap justify-content-center"><span class="fs-5 text-gromada-black mb-4">Увійдіть щоб продовжити</span></div>
+<div class="flex flex-wrap place-content-center"><h1>Вхід до акаунту</h1></div>
+<div class="flex flex-wrap place-content-center"><span class="fs-5 text-gromada-black mb-4">Увійдіть щоб продовжити</span></div>
 
-<div class="d-flex flex-wrap justify-content-center mb-4" data-turbo= "false">
+<div class="flex flex-wrap place-content-center mb-4" data-turbo= "false">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div style="width: 500px;">
     <span class="fs-4 text-gromada-black">Електронна пошта</span><br/>
@@ -17,12 +17,12 @@
     <%= link_to "Забули пароль?", new_password_path(resource_name), class: "text-gromada-green" %><br />
   <% end %>
 
-  <div class="d-flex flex-wrap justify-content-center">
+  <div class="flex flex-wrap place-content-center">
     <div class="my-3">
       <%= f.submit "Увійти", class: "border-0 fs-5 fw-bold bg-gromada-light-green text-gromada-green py-2 px-5" %>
     </div>
   </div>
-  <div class="d-flex flex-wrap justify-content-center">
+  <div class="flex flex-wrap place-content-center">
     <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
       <span>Немає акаунту? <%= link_to "Зареєструватись", new_registration_path(resource_name), class: "text-gromada-green" %></span>
     <% end %>

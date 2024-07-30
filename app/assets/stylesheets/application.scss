@@ -1,6 +1,12 @@
-@import "bootstrap";
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  font-family: "ArtegraSansEx";
+  src: font-url('ArtegraSansEx.ttf');
+}
 
-html {
+* {
   font-family: "Artegra Sans Extended", sans-serif;
 }
 
