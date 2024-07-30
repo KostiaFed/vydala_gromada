@@ -3,7 +3,7 @@
     <div class="image-block">
       <%= image_tag book.cover.variant(resize_to_limit: [150, 200]), class: "book-cover mb-2", loading: :lazy, alt:"Обкладинка" %>
     </div>
-    <h5><%= book.name %></h5>
+    <h5 class="text-xl font-bold"><%= book.name %></h5>
     <div class="mb-2 text-gromada-green"><%= book.user.full_name %></div>
     <div class="flex flex-wrap mb-2">
       <% book.genres.all.each do |genre| %>

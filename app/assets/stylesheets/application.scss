@@ -2,12 +2,12 @@
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  font-family: "ArtegraSansEx";
-  src: font-url('ArtegraSansEx.ttf');
+  font-family: "Artegra Sans Extended";
+  src: font-url('ArtegraSansExRegular.ttf') format('truetype');
 }
 
 * {
-  font-family: "Artegra Sans Extended", sans-serif;
+  font-family: "Artegra Sans Extended";
 }
 
 footer {

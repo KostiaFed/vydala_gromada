@@ -1,21 +1,21 @@
-<div class="flex flex-wrap place-content-center"><h1>Відновити пароль</h1></div>
+<div class="flex flex-wrap place-content-center"><h1 class="text-5xl font-extrabold">Відновити пароль</h1></div>
 
 <div class="flex flex-wrap place-content-center mb-4" data-turbo="false">
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "shared/error_messages", resource: resource %>
   <div style="width: 500px;">
-    <span class="fs-4 text-gromada-black">Новий пароль</span><br/>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control input-lg mb-2"%>
+    <span class="text-lg text-gromada-black">Новий пароль</span><br/>
+    <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control w-full mb-2"%>
   </div>
 
   <div style="width: 500px;">
-    <span class="fs-4 text-gromada-black">Підтвердіть пароль</span><br/>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control input-lg mb-2" %>
+    <span class="text-lg text-gromada-black">Підтвердіть пароль</span><br/>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control w-full mb-2" %>
   </div>
 
   <div class="flex flex-wrap place-content-center">
     <div class="my-3">
-      <%= f.submit "Змінити пароль", class: "border-0 fs-5 fw-bold bg-gromada-light-green text-gromada-green py-2 px-5" %>
+      <%= f.submit "Змінити пароль", class: "border-0 text-xl fw-bold bg-gromada-light-green text-gromada-green py-2 px-5" %>
     </div>
   </div>
   <%= render "devise/shared/links" %>

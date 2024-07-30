@@ -1,16 +1,16 @@
-<div class="flex flex-wrap place-content-center"><h1>Вхід до акаунту</h1></div>
-<div class="flex flex-wrap place-content-center"><span class="fs-5 text-gromada-black mb-4">Увійдіть щоб продовжити</span></div>
+<div class="flex flex-wrap place-content-center mt-8"><h1 class="text-5xl font-extrabold">Вхід до акаунту</h1></div>
+<div class="flex flex-wrap place-content-center"><span class="text-xl text-gromada-black my-4">Увійдіть щоб продовжити</span></div>
 
 <div class="flex flex-wrap place-content-center mb-4" data-turbo= "false">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div style="width: 500px;">
-    <span class="fs-4 text-gromada-black">Електронна пошта</span><br/>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control input-lg" %>
+    <span class="text-lg text-gromada-black">Електронна пошта</span><br/>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control w-full" %>
   </div>
 
   <div>
-    <span class="fs-4 text-gromada-black">Пароль</span><br/>
-    <%= f.password_field :password, autocomplete: "current-password", class: "form-control input-lg mb-2"%>
+    <span class="text-lg text-gromada-black">Пароль</span><br/>
+    <%= f.password_field :password, autocomplete: "current-password", class: "form-control w-full mb-2"%>
   </div>
 
   <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
@@ -19,7 +19,7 @@
 
   <div class="flex flex-wrap place-content-center">
     <div class="my-3">
-      <%= f.submit "Увійти", class: "border-0 fs-5 fw-bold bg-gromada-light-green text-gromada-green py-2 px-5" %>
+      <%= f.submit "Увійти", class: "border-0 text-xl fw-bold bg-gromada-light-green text-gromada-green py-2 px-5" %>
     </div>
   </div>
   <div class="flex flex-wrap place-content-center">
