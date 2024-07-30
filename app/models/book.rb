@@ -22,4 +22,6 @@ class Book < ApplicationRecord
 
   has_many :books_genres
   has_many :genres, through: :books_genres
+
+  validates :cover, attached: true, content_type: ['image/png', 'image/jpeg']
 end

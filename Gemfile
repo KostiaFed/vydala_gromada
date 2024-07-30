@@ -21,6 +21,7 @@ gem 'stimulus-rails'
 gem 'tailwindcss-rails', '~> 2.6'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[windows jruby]
+gem 'active_storage_validations'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]

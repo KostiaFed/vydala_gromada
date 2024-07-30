@@ -1,6 +1,6 @@
 <%= link_to book_path(book), class:"flex place-content-center border book-block mb-2" do %>
   <div class="m-3 content-block">
-    <div class="image-block">
+    <div class="image-block flex place-content-center">
       <%= image_tag book.cover.variant(resize_to_limit: [150, 200]), class: "book-cover mb-2", loading: :lazy, alt:"Обкладинка" %>
     </div>
     <h5 class="text-xl font-bold"><%= book.name %></h5>

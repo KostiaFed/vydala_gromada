@@ -20,7 +20,7 @@
         <% unless notice.nil? %>
           <label class="flash">
             <input type="checkbox" class="alertCheckbox" autocomplete="off" />
-            <div class="alert alert-info">
+            <div class="alert py-2 px-2 bg-lime-200">
               <span class="alertClose">X</span>
               <span class="alertText"><%= notice %>
               <br class="clear"/></span>
@@ -31,7 +31,7 @@
           <% unless alert.nil? %>
           <label class="flash">
             <input type="checkbox" class="alertCheckbox" autocomplete="off" />
-            <div class="alert alert-danger">
+            <div class="alert py-2 px-2 bg-red-400">
               <span class="alertClose">X</span>
               <span class="alertText"><%= alert %>
               <br class="clear"/></span>

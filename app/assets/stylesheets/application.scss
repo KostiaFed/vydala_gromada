@@ -10,6 +10,30 @@
   font-family: "Artegra Sans Extended";
 }
 
+.placeholder {
+  display: inline-block;
+  min-height: 1em;
+  vertical-align: middle;
+  cursor: wait;
+  background-color: currentColor;
+  opacity: .5;
+}
+
+.placeholder-glow .placeholder {
+  -webkit-animation: placeholder-glow 2s ease-in-out infinite;
+  animation: placeholder-glow 2s ease-in-out infinite;
+}
+
+.col-6 {
+  flex: 0 0 auto;
+  width: 50%;
+}
+
+.col-5 {
+  flex: 0 0 auto;
+  width: 40%;
+}
+
 footer {
   background-color: #131313;
   bottom: 0; 
@@ -27,14 +51,7 @@ a {
 .flash {
   position: absolute;
   right: 10px;
-  animation-name: alert-animation;
-  animation-duration: 1s;
   cursor: pointer;
-}
-
-@keyframes alert-animation {
-  from { right: -500px; }
-  to { right: 10px; }
 }
 
 .alertCheckbox {
