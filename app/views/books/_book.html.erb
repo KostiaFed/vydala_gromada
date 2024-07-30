@@ -10,6 +10,6 @@
         <div class="px-1 tag border-gromada-green text-gromada-green"><%= genre.name %></div>
       <% end %>
     </div>
-    <p><%= "#{book.short_description[0..100]}..." %></p>
+    <p><%= "#{book.short_description[0..100]}#{book.short_description.size > 100 ? "..." : ""}" %></p>
   </div>
 <% end %>

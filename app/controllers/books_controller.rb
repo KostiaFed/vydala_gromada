@@ -20,6 +20,7 @@ class BooksController < ApplicationController
 
   def create
     if current_user.books << Book.new(book_params)
+      Book.last.genres << Genre.all.sample
       redirect_to book_path(current_user.books.last.id)
     else
       render 'new'
@@ -33,6 +34,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:name, :descrition, :user_id)
+    params.require(:book).permit(:name, :short_description, :cover, :user_id)
   end
 end

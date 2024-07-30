@@ -9,6 +9,6 @@
 #
 FactoryBot.define do
   factory :genre do
-    name { Faker::Book.genre }
+    name { ["Бойовик", "Детектив", "Дитяча література", "Драма", "Фантастика", "Фентезі", "Роман", "Пригоди", "П'єса", "Поезія", "Гумор"].sample }
   end
 end
