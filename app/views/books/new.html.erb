@@ -28,11 +28,11 @@
     </label>
   </div>
 
-  <div class="flex flex-wrap place-content-center mt-8"><h1 class="text-4xl font-extrabold">Про книгу</h1></div>
   <%= render "shared/error_messages", resource: @book %>
   <%= form_for :book, url: books_path(@book) do |f| %>
     <div class="flex place-content-center">
       <div id="book_section" class="w-[40%]">
+        <h1 class="text-4xl text-center font-extrabold">Про книгу</h1>
         <%= f.label :name, "Назва книги*", class: "text-xl"%><br />
         <%= f.text_field :name, class: "mb-4 w-full" %><br />
 
@@ -44,7 +44,22 @@
       </div>
 
       <div id="rewards_section" class="hidden w-[40%]">
+        <h1 class="text-4xl text-center font-extrabold">Нагороди</h1>
+        <%= f.fields_for :rewards, @rewards do |reward| %>
+          <%= reward.label :donation_size, "Донат*", class: "text-xl"%><br />
+          <%= reward.text_field :donation_size, class: "mb-4 w-full", placeholder: "₴" %><br />
+          
+          <div class="border-2 p-4">
+            <%= reward.label :item_name, "Предмет*", class: "text-xl"%><br />
+            <%= reward.text_field :item_name, class: "mb-4 w-full" %><br />
 
+            <%= reward.label :picture, "Зображення (не обов’язково)*", class: "text-xl"%><br />
+            <%= reward.file_field :picture, class: "mb-4 w-full"%><br />
+
+            <%= reward.label :description, "Опис (не обов’язково)", class: "text-xl"%><br />
+            <%= reward.text_field :description, class: "mb-4 w-full"%><br />
+          </div>
+        <% end %>
       </div>
 
       <div id="contacts_section" class="hidden w-[40%]">

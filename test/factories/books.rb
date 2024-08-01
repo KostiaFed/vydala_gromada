@@ -24,8 +24,7 @@ FactoryBot.define do
     short_description { Faker::Lorem.paragraph_by_chars(number: 1000) }
 
     cover do
-      Rack::Test::UploadedFile.new(MiniMagick::Image.new(Dir[Rails.root.join('test', 'files', 'covers',
-                                                                             '*')].sample).resize('150x200>').path)
+      Rack::Test::UploadedFile.new(Dir[Rails.root.join('test', 'files', 'covers', '*')].sample)
     end
 
     user

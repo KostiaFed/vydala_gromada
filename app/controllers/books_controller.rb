@@ -16,6 +16,7 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    @rewards = @book.rewards.build
   end
 
   def create
@@ -34,6 +35,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:name, :short_description, :cover, :user_id)
+    params.require(:book).permit(:name, :short_description, :cover, :user_id, rewards_attributes: [:description, :item_name, :donation_size, :picture, :book_id])
   end
 end

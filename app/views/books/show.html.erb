@@ -1,6 +1,19 @@
-<div class="flex place-content-center border book-block mb-2">
-  <div class="m-3 content-block">
-    <h5 class="text-xl font-bold">Опис</h5>
-    <p><%= @book.short_description %></p>
+<div class="flex place-content-center mb-2">
+  <div class="m-3">
+    <div class="flex">
+      <div class="image-block">
+        <%= image_tag @book.cover.variant(resize_to_limit: [150, 200]), class: "mb-2", loading: :lazy, alt:"Обкладинка" %>
+      </div>
+      <div>
+        <h5 class="text-xl font-bold"><%= @book.name %></h5>
+        <div class="mb-2 text-gromada-green"><%= @book.user.full_name %></div>
+        <div class="flex flex-wrap mb-2">
+          <% @book.genres.all.each do |genre| %>
+            <div class="px-1 tag border-gromada-green text-gromada-green"><%= genre.name %></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <p><%= "#{@book.short_description[0..100]}#{@book.short_description.size > 100 ? "..." : ""}" %></p>
   </div>
 </div>

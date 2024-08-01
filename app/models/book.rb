@@ -25,6 +25,9 @@ class Book < ApplicationRecord
 
   has_many :books_genres
   has_many :genres, through: :books_genres
+  has_many :rewards
+
+  accepts_nested_attributes_for :rewards, allow_destroy: true
 
   validates :cover, attached: true, content_type: ['image/png', 'image/jpeg']
 end
