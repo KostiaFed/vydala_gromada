@@ -13,6 +13,11 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
     },
+    colors: {
+      'gromada-green': "#ACBE1A",
+      'gromada-lime': "#F9FBCC",
+      'gromada-gray': "#BEBFBE"
+    }
   },
   plugins: [
     require('@tailwindcss/forms'),

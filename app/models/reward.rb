@@ -16,4 +16,7 @@
 #
 class Reward < ApplicationRecord
   has_one_attached :picture
+
+  validates :donation_size, presence: true
+  validates :item_name, presence: true
 end

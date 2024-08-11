@@ -29,7 +29,7 @@
   </div>
 
   <%= render "shared/error_messages", resource: @book %>
-  <%= form_for :book, url: books_path(@book) do |f| %>
+  <%= form_with model: @book do |f| %>
     <div class="flex place-content-center">
       <div id="book_section" class="w-[40%]">
         <h1 class="text-4xl text-center font-extrabold">Про книгу</h1>
@@ -45,11 +45,11 @@
 
       <div id="rewards_section" class="hidden w-[40%]">
         <h1 class="text-4xl text-center font-extrabold">Нагороди</h1>
-        <%= f.fields_for :rewards, @rewards do |reward| %>
+        <%= f.fields_for :rewards do |reward| %>
           <%= reward.label :donation_size, "Донат*", class: "text-xl"%><br />
           <%= reward.text_field :donation_size, class: "mb-4 w-full", placeholder: "₴" %><br />
           
-          <div class="border-2 p-4">
+          <div class="border border-gromada-gray p-4">
             <%= reward.label :item_name, "Предмет*", class: "text-xl"%><br />
             <%= reward.text_field :item_name, class: "mb-4 w-full" %><br />
 

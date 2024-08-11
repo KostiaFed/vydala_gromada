@@ -1,19 +1,35 @@
 <div class="flex place-content-center mb-2">
   <div class="m-3">
-    <div class="flex">
+    <div class="flex w-[75%]">
       <div class="image-block">
-        <%= image_tag @book.cover.variant(resize_to_limit: [150, 200]), class: "mb-2", loading: :lazy, alt:"Обкладинка" %>
+        <%= image_tag @book.cover.variant(resize_to_limit: [300, 400]), class: "mb-2", loading: :lazy, alt:"Обкладинка" %>
       </div>
-      <div>
-        <h5 class="text-xl font-bold"><%= @book.name %></h5>
-        <div class="mb-2 text-gromada-green"><%= @book.user.full_name %></div>
+      <div class="p-4">
+        <h5 class="text-3xl font-bold"><%= @book.name %></h5>
+        <div class="mb-2 font-bold text-gromada-green"><%= @book.user.full_name %></div>
         <div class="flex flex-wrap mb-2">
           <% @book.genres.all.each do |genre| %>
-            <div class="px-1 tag border-gromada-green text-gromada-green"><%= genre.name %></div>
+            <div class="px-1 tag border-gromada-green border rounded-md text-gromada-green"><%= genre.name %></div>
           <% end %>
         </div>
       </div>
     </div>
-    <p><%= "#{@book.short_description[0..100]}#{@book.short_description.size > 100 ? "..." : ""}" %></p>
+    <div class="mt-8">
+      <h5 class="text-3xl font-bold">Опис</h5>
+      <p><%= @book.short_description %></p>
+    </div>
+
+    <div class="mt-8">
+      <h5 class="text-3xl font-bold">Нагороди</h5>
+      <div class="border border-gromada-gray bg-slate-50 p-4">
+      <% @book.rewards.each do |reward|%>
+        <span class="p-2 border border-gromada-gray bg-gromada-lime"><%= "₴#{reward.donation_size}" %></span>
+        <hr class="my-2">
+        <h4 class="text-xl"><%= "Передзамовлення на #{reward.donation_size}₴" %></h4>
+        <p>Ти отримаєш:</p>
+        <li><%= "#{reward.item_name}" %></li>
+      <% end %>
+      </div>
+    </div>
   </div>
 </div>

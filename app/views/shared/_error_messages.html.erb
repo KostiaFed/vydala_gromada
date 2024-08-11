@@ -1,7 +1,7 @@
 <% if resource.nil? %>
   <label class="flash">
     <input type="checkbox" class="alertCheckbox" autocomplete="off" />
-    <div class="alert py-2 px-2 bg-red-400">
+    <div class="alert py-2 px-2 bg-gromada-lime">
       <span class="alertClose">X</span>
       <span class="alertText">Щось пішло не так...
       <br class="clear"/></span>
@@ -11,7 +11,7 @@
   <% resource.errors.full_messages.each do |message| %>
     <label class="flash">
       <input type="checkbox" class="alertCheckbox" autocomplete="off" />
-      <div class="alert py-2 px-2 bg-red-400">
+      <div class="alert py-2 px-2 bg-gromada-lime">
         <span class="alertClose">X</span>
         <span class="alertText"><%= message %>
         <br class="clear"/></span>
