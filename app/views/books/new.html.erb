@@ -33,11 +33,18 @@
     <div class="flex place-content-center">
       <div id="book_section" class="w-[40%]">
         <h1 class="text-4xl text-center font-extrabold">Про книгу</h1>
+        <%= f.label :book_url, "Книга*", class: "text-xl"%><br />
+        <%= f.text_field :book_url, class: "w-full" %>
+        <p class="text-sm text-gromada-gray mt-[1px] mb-4">Посилання на Google Диск чи інший файлообмінник</p>
+
         <%= f.label :name, "Назва книги*", class: "text-xl"%><br />
         <%= f.text_field :name, class: "mb-4 w-full" %><br />
 
-        <%= f.label :short_description, "Короткий опис книги*", class: "text-xl"%><br />
-        <%= f.text_field :short_description, class: "mb-4 w-full"%><br />
+        <div data-controller="show-limit">
+        <%= f.label :short_description, "Короткий опис книги*", class: "text-xl" %><br />
+        <%= f.text_field :short_description, "maxLength": "300", class: "w-full", data: { show_limit_target: "field", action: "input->show-limit#update" } %>
+        <p data-show-limit-target="text" class="text-gromada-gray mt-[1px] mb-4">0/300</p>
+        </div>
 
         <%= f.label :cover, "Обкладинка*", class: "text-xl"%><br />
         <div class="cursor-pointer border-dashed border-[1.5px] p-5 flex rounded-md border-gromada-gray dropzone dropzone-default dz-clickable" data-controller="dropzone" data-dropzone-max-file-size="2" data-dropzone-max-files="1">
@@ -50,6 +57,10 @@
             </div>
             <div class="font-bold p-2 content-center text-sm text-gromada-dark-green">Обрати файл</div>
           </div>
+        </div>
+
+        <div data-controller="multiselect" data-multiselect-items-value='[{ "value": "cuckoo", "text": "Cuckoo 🐦"}, { "value": "macaw", "text": "Macaw 🦜"}, { "value": "rooster", "text": "Rooster 🐓"}]' data-placeholder="Search for birds...">
+          <select multiple="multiple" class="multiselect__hidden" data-multiselect-target="hidden" name="form[test_ids][]" id="form_test_ids"></select>
         </div>
       </div>
 

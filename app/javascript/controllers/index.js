@@ -9,3 +9,9 @@ application.register("dropzone", DropzoneController)
 
 import SectionsController from "./sections_controller"
 application.register("sections", SectionsController)
+
+import ShowLimitController from "./show_limit_controller"
+application.register("show-limit", ShowLimitController)
+
+import { Multiselect } from '@wizardhealth/stimulus-multiselect'
+application.register('multiselect', Multiselect)
