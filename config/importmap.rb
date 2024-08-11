@@ -3,7 +3,7 @@ pin '@hotwired/turbo-rails', to: 'turbo.min.js'
 pin '@hotwired/stimulus', to: 'stimulus.min.js'
 pin '@hotwired/stimulus-loading', to: 'stimulus-loading.js'
 pin '@rails/activestorage', to: 'activestorage.esm.js'
-pin '@wizardhealth/stimulus-multiselect'
+pin '@wizardhealth/stimulus-multiselect', to: '@wizardhealth--stimulus-multiselect.js' # @1.0.0
 
 pin 'dropzone', to: 'https://ga.jspm.io/npm:dropzone@6.0.0-beta.2/dist/dropzone.mjs'
 pin 'just-extend', to: 'https://ga.jspm.io/npm:just-extend@5.1.1/index.esm.js'
