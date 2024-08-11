@@ -17,6 +17,13 @@ class BooksController < ApplicationController
   def new
     @book = Book.new
     @book.rewards.build
+
+    @genres = '['
+    Genre.all.each do |genre|
+      @genres += "{\"value\": \"#{genre.id}\", \"text\": \"#{genre.name}\"},"
+    end
+    @genres = @genres.chop
+    @genres += ']'
   end
 
   def create

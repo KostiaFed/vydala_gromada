@@ -6,7 +6,6 @@
 #  book_url           :string
 #  collect_ended_at   :datetime
 #  collect_started_at :datetime
-#  long_description   :string
 #  name               :string
 #  short_description  :string
 #  video_url          :string
@@ -20,6 +19,10 @@
 #
 class Book < ApplicationRecord
   has_one_attached :cover
+
+  has_many_attached :illustrations
+
+  has_rich_text :long_description
 
   belongs_to :user
 

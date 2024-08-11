@@ -6,7 +6,6 @@
 #  book_url           :string
 #  collect_ended_at   :datetime
 #  collect_started_at :datetime
-#  long_description   :string
 #  name               :string
 #  short_description  :string
 #  video_url          :string

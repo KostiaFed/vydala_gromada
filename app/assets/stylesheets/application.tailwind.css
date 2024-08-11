@@ -2,12 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
+.multiselect__search {
+  display: none;
 }
 
-*/
+.multiselect__list {
+  @apply flex flex-wrap
+}
+
+.multiselect__list > li {
+  @apply m-[4px]
+}
+
+.multiselect__list > li > label > input {
+  display: none;
+}
+
+.multiselect__list > li > label > span {
+  @apply text-gromada-dark-green border-gromada-dark-green border-[1px] rounded-lg p-[4px] font-semibold text-sm
+}
+
+.multiselect__pill {
+  display: none;
+}
+
+.multiselect__list > li > label > [type=checkbox]:checked + span {
+  @apply bg-gromada-green
+}
+@import 'actiontext.css';

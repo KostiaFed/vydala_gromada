@@ -47,21 +47,44 @@
         </div>
 
         <%= f.label :cover, "Обкладинка*", class: "text-xl"%><br />
-        <div class="cursor-pointer border-dashed border-[1.5px] p-5 flex rounded-md border-gromada-gray dropzone dropzone-default dz-clickable" data-controller="dropzone" data-dropzone-max-file-size="2" data-dropzone-max-files="1">
+        <div class="mb-4 cursor-pointer border-dashed border-[1.5px] p-5 flex rounded-md border-gromada-gray dropzone dropzone-default dz-clickable" data-controller="dropzone" data-dropzone-max-file-size="2" data-dropzone-max-files="1">
           <%= f.file_field :cover, direct_upload: true, data: { dropzone_target: 'input' } %>
           <div class="flex dropzone-msg text-gray-600 needsclick dz-message">
             <%= image_tag "upload.svg", class: "pr-5" %>
             <div>
               <h3 class="text-xs dropzone-msg-title">Оберіть файл, або перетягніть його сюди</h3>
-              <span class="text-xs text-gromada-gray dropzone-msg-desc text-sm">Файл формату png, jpg не більше 2 MB</span>
+              <span class="text-xs text-gromada-gray dropzone-msg-desc">Файл формату png, jpg не більше 2 MB</span>
             </div>
             <div class="font-bold p-2 content-center text-sm text-gromada-dark-green">Обрати файл</div>
           </div>
         </div>
 
-        <div data-controller="multiselect" data-multiselect-items-value='[{ "value": "cuckoo", "text": "Cuckoo 🐦"}, { "value": "macaw", "text": "Macaw 🦜"}, { "value": "rooster", "text": "Rooster 🐓"}]' data-placeholder="Search for birds...">
-          <select multiple="multiple" class="multiselect__hidden" data-multiselect-target="hidden" name="form[test_ids][]" id="form_test_ids"></select>
+        <%= f.label :cover, "Жанр книги*", class: "text-xl"%><br />
+        <div data-controller="multiselect" data-multiselect-items-value="<%= @genres %>">
+          <select multiple="multiple" class="hidden multiselect__hidden" data-multiselect-target="hidden" name="form[test_ids][]" id="form_test_ids"></select>
         </div>
+        <p class="text-gromada-gray mt-[1px] text-sm mb-4">(оберіть до 3-ох жанрів)</p>
+
+        <%= f.label :video_url, "Посилання на відео*", class: "text-xl"%><br />
+        <%= f.text_field :video_url, class: "w-full" %>
+        <p class="text-sm text-gromada-gray mt-[1px] mb-4">Відео про книгу на Youtube</p>
+
+        <div class="flex place-content-between"><%= f.label :illustrations, "Ілюстрації", class: "text-xl"%><span class="font-bold">0/3</span></div>
+        <div class="mb-4 cursor-pointer border-dashed border-[1.5px] p-5 flex rounded-md border-gromada-gray dropzone dropzone-default dz-clickable" data-controller="dropzone" data-dropzone-max-file-size="2" data-dropzone-max-files="1">
+          <%= f.file_field :cover, direct_upload: true, data: { dropzone_target: 'input' } %>
+          <div class="flex dropzone-msg text-gray-600 needsclick dz-message">
+            <%= image_tag "upload.svg", class: "pr-5" %>
+            <div>
+              <h3 class="text-xs dropzone-msg-title">Оберіть файл, або перетягніть його сюди</h3>
+              <span class="text-xs text-gromada-gray dropzone-msg-desc">Файл формату png, jpg не більше 2 MB</span>
+            </div>
+            <div class="font-bold p-2 content-center text-sm text-gromada-dark-green">Обрати файл</div>
+          </div>
+        </div>
+
+        <%= f.label :long_description, "Детальний опис книги*", class: "text-xl"%>
+        <p class="text-sm">Тут ви можете розповісти історію написання книги, написати про себе або детальніше розписати ідею/сюжет книги</p>
+        <%= f.rich_text_area :long_description, class: "mb-4 w-full" %><br />
       </div>
 
       <div id="rewards_section" class="hidden w-[40%]">
