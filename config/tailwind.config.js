@@ -16,7 +16,8 @@ module.exports = {
     colors: {
       'gromada-green': "#ACBE1A",
       'gromada-lime': "#F9FBCC",
-      'gromada-gray': "#BEBFBE"
+      'gromada-gray': "#BEBFBE",
+      'gromada-dark-green': "#6A7912"
     }
   },
   plugins: [

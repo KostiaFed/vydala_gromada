@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '3.3.2'
+ruby '3.3.4'
 
+gem 'active_storage_validations'
 gem 'bootsnap', require: false
 gem 'devise', '~> 4.9'
 gem 'image_processing', '~> 1.2'
@@ -21,7 +22,6 @@ gem 'stimulus-rails'
 gem 'tailwindcss-rails', '~> 2.6'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[windows jruby]
-gem 'active_storage_validations'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]

@@ -40,7 +40,17 @@
         <%= f.text_field :short_description, class: "mb-4 w-full"%><br />
 
         <%= f.label :cover, "Обкладинка*", class: "text-xl"%><br />
-        <%= f.file_field :cover, class: "mb-4 w-full"%><br />
+        <div class="cursor-pointer border-dashed border-[1.5px] p-5 flex rounded-md border-gromada-gray dropzone dropzone-default dz-clickable" data-controller="dropzone" data-dropzone-max-file-size="2" data-dropzone-max-files="1">
+          <%= f.file_field :cover, direct_upload: true, data: { dropzone_target: 'input' } %>
+          <div class="flex dropzone-msg text-gray-600 needsclick dz-message">
+            <%= image_tag "upload.svg", class: "pr-5" %>
+            <div>
+              <h3 class="text-xs dropzone-msg-title">Оберіть файл, або перетягніть його сюди</h3>
+              <span class="text-xs text-gromada-gray dropzone-msg-desc text-sm">Файл формату png, jpg не більше 2 MB</span>
+            </div>
+            <div class="font-bold p-2 content-center text-sm text-gromada-dark-green">Обрати файл</div>
+          </div>
+        </div>
       </div>
 
       <div id="rewards_section" class="hidden w-[40%]">
@@ -53,7 +63,7 @@
             <%= reward.label :item_name, "Предмет*", class: "text-xl"%><br />
             <%= reward.text_field :item_name, class: "mb-4 w-full" %><br />
 
-            <%= reward.label :picture, "Зображення (не обов’язково)*", class: "text-xl"%><br />
+            <%= reward.label :picture, "Зображення (не обов’язково)", class: "text-xl"%><br />
             <%= reward.file_field :picture, class: "mb-4 w-full"%><br />
 
             <%= reward.label :description, "Опис (не обов’язково)", class: "text-xl"%><br />

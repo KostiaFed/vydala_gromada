@@ -4,3 +4,4 @@
 //= link application.css
 //= link application.js
 //= link_tree ../../javascript/controllers
+//= link_tree ../../javascript/helpers
