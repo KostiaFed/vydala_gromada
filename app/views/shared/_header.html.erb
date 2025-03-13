@@ -10,12 +10,23 @@
     <a class="content-center container rounded-sm text-center py w-fit mx-2 px-2 mr-2" href="#">Про нас</a>
     <a class="content-center container rounded-sm text-center py w-fit mx-2 px-2 mr-2" href="#">Контакти</a>
   </div>
-  <div class="flex place-content-center" data-turbo="false">
+  <div class="flex place-content-center items-center" data-turbo="false">
     <% if user_signed_in? %> 
-      <%= button_to "Вийти", destroy_user_session_path, method: :delete, class: "h-full content-center container rounded-sm text-center py w-fit mx-2 px-2 mr-2"%> 
+      <div class="dropdown">
+        <div class="flex place-content-center items-center" onclick="document.getElementById('menu').classList.toggle('hidden');">
+          <div class="rounded-full bg-gromada-gray w-10 h-10"></div>
+          <span class="ml-2"><%= current_user.full_name %></span>
+          <%= image_tag "two-lines-arrow.svg", class: "ml-2" %>
+        </div>
+        <div id="menu" class="dropdown-content hidden w-full mt-2">
+          <%= link_to "Кабінет автора", user_path(current_user), class: "hover:bg-gromada-gray w-full h-full container py px-2 block" %>
+          <%= link_to "Видати книгу", new_book_path, class: "hover:bg-gromada-gray w-full h-full container py px-2 block" %>
+          <%= button_to "Вийти", destroy_user_session_path, method: :delete, class: "hover:bg-gromada-gray flex content-start w-full h-full container py px-2" %>
+        </div>
+      </div>
     <% else %>
       <%= link_to "Увійти", new_user_session_path, class: "content-center container rounded-sm text-center py w-fit mx-2 px-2 mr-2" %>
+      <%= link_to "Видати книгу", new_book_path, class: "content-center container rounded-sm text-center py w-fit mx-2 px-2 bg-gromada-green"%>
     <% end %>
-    <%= link_to "Видати книгу", new_book_path, class: "content-center container rounded-sm text-center py w-fit mx-2 px-2 bg-gromada-green"%>
   </div>
 </nav>

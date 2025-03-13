@@ -1,9 +1,9 @@
 <% if @pagy.next.present? %>
   <div class="flex place-content-center mb-4">
     <%= button_to books_path, params: { page: @pagy.next }, method: :get, "data-turbo-stream": true, class: "content-center flex rounded-sm text-center py w-fit mx-2 border-2 py-2 px-4 text-dark" do %>
-      <img class="pr-2" src="icons/page.svg"/>
+      <%= image_tag "page", class: "pr-2" %>
       Показати більше
-      <img class="pl-2" src="icons/page.svg"/>
+      <%= image_tag "page", class: "pl-2" %>
     <% end %>
   </div>
 <% end %>

@@ -28,7 +28,10 @@ class BooksController < ApplicationController
 
   def create
     if current_user.books << Book.new(book_params)
-      Book.last.genres << Genre.all.sample
+      params.dig("book")["tag_ids"].each do |id|
+        Book.last.genres << Genre.find_by(id: id)
+      end
+
       redirect_to book_path(current_user.books.last.id)
     else
       render 'new'
@@ -42,6 +45,15 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit!
+    params.require(:book).permit(
+      :book_url,
+      :name,
+      :short_description,
+      :video_url,
+      :cover,
+      :illustrations,
+      :long_description,
+      rewards_attributes: [:description, :donation_size, :item_name, :picture]
+    )
   end
 end

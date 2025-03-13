@@ -1,6 +1,19 @@
 //= require actiontext
 //= require trix
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
 @font-face {
   font-style: normal;
   font-weight: 400;
@@ -136,21 +149,6 @@ a {
 
 .click-svg {
   width: 30px;
-}
-
-#book:checked + label > .selected-line,
-#rewards:checked + label > .selected-line,
-#contacts:checked + label > .selected-line
-{
-  display: block !important;
-}
-
-// https://isotropic.co/tool/hex-color-to-css-filter/
-#book:checked + label > div > .click-svg,
-#rewards:checked + label > div > .click-svg,
-#contacts:checked + label > div > .click-svg
-{
-  filter: invert(57%) sepia(74%) saturate(451%) hue-rotate(28deg) brightness(85%) contrast(99%);
 }
 
 @media screen and (max-width: 950px) {

@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   root 'books#index'
 
   resources :books, only: %i[index show new create]
+  resources :users, only: %i[show]
 end
