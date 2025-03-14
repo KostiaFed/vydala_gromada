@@ -13,6 +13,7 @@ gem 'mini_magick', '~> 4.12'
 gem 'pagy'
 gem 'pg'
 gem 'puma', '>= 5.0'
+gem 'pundit'
 gem 'rails', '~> 7.1.3', '>= 7.1.3.2'
 gem 'redis', '~> 4.0'
 gem 'sassc-rails'
@@ -33,6 +34,7 @@ end
 group :development do
   gem 'annotate'
   gem 'web-console'
+  gem 'switch_user'
 end
 
 group :test do

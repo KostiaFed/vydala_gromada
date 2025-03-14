@@ -4,10 +4,10 @@
       <%= image_tag book.cover.variant(resize_to_limit: [150, 200]), class: "w-[50%] mb-2 h-[200px]", loading: :lazy, alt:"Обкладинка" %>
     </div>
     <h5 class="text-xl font-semibold overflow-hidden whitespace-nowrap"><%= book.name %></h5>
-    <div class="mb-2 text-gromada-dark-green font-semibold"><%= book.user.full_name %></div>
+    <div class="mb-2 text-gromada-green-800 font-semibold"><%= book.user.full_name %></div>
     <div class="flex overflow-hidden flex-nowrap">
       <% book.genres.all.each do |genre| %>
-        <div class="px-1 mb-2 tag border-gromada-dark-green border rounded-md text-gromada-dark-green"><span class="font-medium overflow-hidden whitespace-nowrap"><%= genre.name %></span></div>
+        <div class="px-1 mb-2 tag border-gromada-green-800 border rounded-md text-gromada-green-800"><span class="font-medium overflow-hidden whitespace-nowrap"><%= genre.name %></span></div>
       <% end %>
     </div>
     <p class="font-semibold mb-2 overflow-hidden h-[72px]"><%= "#{book.short_description[0..100]}#{book.short_description.size > 100 ? "..." : ""}" %></p>

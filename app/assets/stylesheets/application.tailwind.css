@@ -19,7 +19,7 @@
 }
 
 .multiselect__list > li > label > span {
-  @apply text-gromada-dark-green border-gromada-dark-green border-[1px] rounded-lg p-[4px] font-semibold text-sm
+  @apply text-gromada-green-800 border-gromada-green-800 border-[1px] rounded-lg p-[4px] font-semibold text-sm
 }
 
 .multiselect__pill {
@@ -29,4 +29,9 @@
 .multiselect__list > li > label > [type=checkbox]:checked + span {
   @apply bg-gromada-green
 }
+
+.developer-button:hover > * {
+  display: block;
+}
+
 @import 'actiontext.css';

@@ -1,0 +1,144 @@
+<div data-turbo="false" data-controller="sections">
+  <div class="text-center mb-4 py-3 bg-gromada-light-gray">Перед тим як опублікувати книгу, будь ласка, ознайомтесь з <a class="text-gromada-green">нашими правилами</a></div>
+
+  <div class="mb-4 flex place-content-center align-items-center">
+    <input type="radio" id="book" name="section" class="hidden" data-action="input->sections#book" checked />
+    <label class="mx-2" for="book">
+      <div class="my-2 flex place-content-center align-items-center create-book-section">
+        <%= image_tag "book.svg", class: "click-svg", style: "filter: invert(57%) sepia(74%) saturate(451%) hue-rotate(28deg) brightness(85%) contrast(99%);" %>
+        <span class="text-lg">Книга</span>
+      </div>
+      <div class="bg-gromada-green selected-line"></div>
+    </label>
+    <input type="radio" id="rewards" name="section" class="hidden" data-action="input->sections#rewards" />
+    <label class="mx-2" for="rewards">
+      <div class="my-2 flex place-content-center align-items-center create-book-section">
+        <%= image_tag "reward.svg", class: "click-svg" %>
+        <span class="text-lg">Нагороди</span>
+      </div>
+      <div class="hidden bg-gromada-green selected-line"></div>
+    </label>
+    <input type="radio" id="contacts" name="section" class="hidden" data-action="input->sections#contacts" />
+    <label class="mx-2" for="contacts">
+      <div class="my-2 flex place-content-center align-items-center create-book-section">
+        <%= image_tag "contact.svg", class: "click-svg" %>
+        <span class="text-lg">Контакти</span>
+      </div>
+      <div class="hidden bg-gromada-green selected-line"></div>
+    </label>
+  </div>
+
+  <%= render "shared/error_messages", resource: @book %>
+  <%= form_with model: @book do |f| %>
+    <div class="flex place-content-center">
+      <div id="book_section" class="w-[40%]">
+        <h1 class="text-4xl text-center font-extrabold">Про книгу</h1>
+        <%= f.label :book_url, "Книга*", class: "text-xl"%><br />
+        <%= f.text_field :book_url, class: "w-full" %>
+        <p class="text-sm text-gromada-gray mt-[1px] mb-4">Посилання на Google Диск чи інший файлообмінник</p>
+
+        <%= f.label :name, "Назва книги*", class: "text-xl"%><br />
+        <%= f.text_field :name, class: "mb-4 w-full" %><br />
+
+        <div data-controller="show-limit">
+        <%= f.label :short_description, "Короткий опис книги*", class: "text-xl" %><br />
+        <%= f.text_field :short_description, "maxLength": "300", class: "w-full", data: { show_limit_target: "field", action: "input->show-limit#update" } %>
+        <p data-show-limit-target="text" class="text-gromada-gray mt-[1px] mb-4">0/300</p>
+        </div>
+
+        <%= f.label :cover, "Обкладинка*", class: "text-xl"%><br />
+        <div class="mb-4 cursor-pointer border-dashed border-[1.5px] p-5 flex rounded-md border-gromada-gray dropzone dropzone-default dz-clickable" data-controller="dropzone" data-dropzone-max-file-size="2" data-dropzone-max-files="1">
+          <%= f.file_field :cover, direct_upload: true, data: { dropzone_target: 'input' } %>
+          <div class="flex place-content-between w-full dropzone-msg text-gray-600 needsclick dz-message">
+            <div class="flex">
+              <%= image_tag "upload.svg", class: "pr-5" %>
+              <div>
+                <h3 class="text-xs dropzone-msg-title">Оберіть файл, або перетягніть його сюди</h3>
+                <span class="text-xs text-gromada-gray dropzone-msg-desc">Файл формату png, jpg не більше 2 MB</span>
+              </div>
+            </div>
+            <div class="font-bold p-2 content-center text-sm text-gromada-green-800">Обрати файл</div>
+          </div>
+        </div>
+
+        <%= f.label :cover, "Жанр книги*", class: "text-xl"%><br />
+        <div data-controller="multiselect" data-multiselect-items-value="<%= @genres %>">
+          <select multiple="multiple" class="hidden multiselect__hidden" data-multiselect-target="hidden" name="book[tag_ids][]" id="book_tag_ids"></select>
+        </div>
+        <p class="text-gromada-gray mt-[1px] text-sm mb-4">(оберіть до 3-ох жанрів)</p>
+
+        <%= f.label :video_url, "Посилання на відео*", class: "text-xl"%><br />
+        <%= f.text_field :video_url, class: "w-full" %>
+        <p class="text-sm text-gromada-gray mt-[1px] mb-4">Відео про книгу на Youtube</p>
+
+        <%= f.label :language, "Мова книги", class: "text-xl"%><br />
+        <%= f.text_field :language, class: "w-full" %>
+        <p class="text-sm text-gromada-gray mt-[1px] mb-4">Мова якою була написана книга</p>
+
+        <div class="flex place-content-between"><%= f.label :illustrations, "Ілюстрації", class: "text-xl"%><span class="font-bold">0/3</span></div>
+        <div class="mb-4 cursor-pointer border-dashed border-[1.5px] p-5 flex rounded-md border-gromada-gray dropzone dropzone-default dz-clickable" data-controller="dropzone" data-dropzone-max-file-size="2" data-dropzone-max-files="1">
+          <%= f.file_field :cover, direct_upload: true, data: { dropzone_target: 'input' } %>
+          <div class="flex place-content-between w-full dropzone-msg text-gray-600 needsclick dz-message">
+            <div class="flex">
+              <%= image_tag "upload.svg", class: "pr-5" %>
+              <div>
+                <h3 class="text-xs dropzone-msg-title">Оберіть файл, або перетягніть його сюди</h3>
+                <span class="text-xs text-gromada-gray dropzone-msg-desc">Файл формату png, jpg не більше 2 MB</span>
+              </div>
+            </div>
+            <div class="font-bold p-2 content-center text-sm text-gromada-green-800">Обрати файл</div>
+          </div>
+        </div>
+
+        <%= f.label :long_description, "Детальний опис книги*", class: "text-xl"%>
+        <p class="text-sm">Тут ви можете розповісти історію написання книги, написати про себе або детальніше розписати ідею/сюжет книги</p>
+        <%= f.rich_text_area :long_description, class: "mb-4 w-full" %><br />
+
+        <div class="flex place-content-center mb-4">
+          <button type="button" class="bg-gromada-light-green text-gromada-green-800 py-2 px-16 cursor-pointer" data-action="click->sections#rewards">Далі</button>
+        </div>
+      </div>
+
+      <div id="rewards_section" class="hidden w-[40%]">
+        <h1 class="text-4xl text-center font-extrabold">Нагороди</h1>
+        <%= f.fields_for :rewards do |reward| %>
+          <%= reward.label :donation_size, "Донат*", class: "text-xl"%><br />
+          <%= reward.text_field :donation_size, class: "mb-4 w-full", placeholder: "₴" %><br />
+          
+          <div class="border border-gromada-gray p-4">
+            <%= reward.label :item_name, "Предмет*", class: "text-xl"%><br />
+            <%= reward.text_field :item_name, class: "mb-4 w-full" %><br />
+
+            <%= reward.label :picture, "Зображення (не обов’язково)", class: "text-xl"%><br />
+            <%= reward.file_field :picture, class: "mb-4 w-full"%><br />
+
+            <%= reward.label :description, "Опис (не обов’язково)", class: "text-xl"%><br />
+            <%= reward.text_field :description, class: "mb-4 w-full"%><br />
+          </div>
+        <% end %>
+
+        <div class="flex place-content-center mb-4 mt-4">
+          <button type="button" class="bg-gromada-light-green text-gromada-green-800 py-2 px-16 cursor-pointer" data-action="click->sections#contacts">Далі</button>
+        </div>
+      </div>
+
+      <div id="contacts_section" class="hidden w-[40%]">
+        <h1 class="text-4xl text-center font-extrabold">Контакти</h1>
+        <div class="flex flex-wrap place-content-center">
+          <span class="text-sm text-gromada-black mb-8 font-bold">Залиште свої контакти, щоб ми могли з вами зв’язатись</span>
+        </div>
+
+        <form name="contacts">
+          <p class="text-xl">Телеграм</p>
+          <input name="telegram" type="text" class="mb-4 w-full">
+          <p class="text-xl">Інстаграм</p>
+          <input name="instagram" type="text" class="mb-4 w-full">
+        </form>
+          
+        <div class="flex place-content-center mb-4">
+          <%= f.submit "Відправити на розгляд", class: "bg-gromada-light-green text-gromada-green-800 py-2 px-16 cursor-pointer" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

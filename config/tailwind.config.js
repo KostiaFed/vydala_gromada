@@ -12,15 +12,16 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        'gromada-green': "#ACBE1A",
+        'gromada-lime': "#F9FBCC",
+        'gromada-light-green': "#E8EACC",
+        'gromada-green-700': '#556014',
+        'gromada-green-800': "#6A7912",
+        'gromada-gray': "#BEBFBE",
+        'gromada-gray-light': "#EBEBEB"
+      }
     },
-    colors: {
-      'gromada-green': "#ACBE1A",
-      'gromada-lime': "#F9FBCC",
-      'gromada-dark-green': "#6A7912",
-      'gromada-light-green': "#E8EACC",
-      'gromada-gray': "#BEBFBE",
-      'gromada-gray-light': "#EBEBEB"
-    }
   },
   plugins: [
     require('@tailwindcss/forms'),

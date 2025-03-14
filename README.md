@@ -1,4 +1,5 @@
-# README
+Vydala Gromada
+==============
 
 Run ```brew install vips```, ```sudo apt install imagemagick libvips```, ```bundle```, ```rails db:drop db:create db:migrate``` and ```rails s``` in project folder in console to start project.
 

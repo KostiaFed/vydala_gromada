@@ -17,6 +17,12 @@
         <%= render "shared/header" %>
       </header>
       <main class="container mx-auto">
+        <% if Rails.env.development? %>
+          <div class="fixed right-4 top-0 z-[52] bg-gromada-green w-1 h-1 developer-button">
+            <%= switch_user_select class: "hidden !w-[20%] translate-x-[-40px] translate-y-[-5px]" %>
+          </div>
+        <% end %>
+
         <% unless notice.nil? %>
           <label class="flash">
             <input type="checkbox" class="alertCheckbox" autocomplete="off" />
