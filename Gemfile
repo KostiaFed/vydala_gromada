@@ -5,6 +5,8 @@ ruby '3.3.4'
 gem 'active_storage_validations'
 gem 'bootsnap', require: false
 gem 'devise', '~> 4.9'
+gem 'dotenv-rails'
+gem 'httparty'
 gem 'image_processing', '~> 1.2'
 gem 'importmap-rails'
 gem 'jbuilder'
@@ -33,8 +35,8 @@ end
 
 group :development do
   gem 'annotate'
-  gem 'web-console'
   gem 'switch_user'
+  gem 'web-console'
 end
 
 group :test do

@@ -27,9 +27,10 @@ class Book < ApplicationRecord
 
   belongs_to :user
 
-  has_many :books_genres
+  has_many :books_genres, dependent: :destroy
   has_many :genres, through: :books_genres
-  has_many :rewards
+  has_many :rewards, dependent: :destroy
+  has_many :payments, dependent: :nullify
 
   accepts_nested_attributes_for :rewards, allow_destroy: true
 

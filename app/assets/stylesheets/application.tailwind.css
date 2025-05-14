@@ -2,36 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 
-.multiselect__search {
-  display: none;
-}
-
-.multiselect__list {
-  @apply flex flex-wrap
-}
-
-.multiselect__list > li {
-  @apply m-[4px]
-}
-
-.multiselect__list > li > label > input {
-  display: none;
-}
-
-.multiselect__list > li > label > span {
-  @apply text-gromada-green-800 border-gromada-green-800 border-[1px] rounded-lg p-[4px] font-semibold text-sm
-}
-
-.multiselect__pill {
-  display: none;
-}
-
-.multiselect__list > li > label > [type=checkbox]:checked + span {
-  @apply bg-gromada-green
-}
-
-.developer-button:hover > * {
-  display: block;
-}
-
 @import 'actiontext.css';
+@import 'dialog_window.css';
