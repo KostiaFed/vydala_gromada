@@ -13,7 +13,6 @@ class BookPolicy < ApplicationPolicy
     edit?
   end
 
-
   private
 
   def owner?

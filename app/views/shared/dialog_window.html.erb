@@ -1,0 +1,52 @@
+<%# USAGE: %>
+<%# render template: "/shared/dialog_window", locals: { content:, id:, title: } %>
+
+<%# OPTIONAL PARAMETERS: %>
+<%# locals: {} %>
+<%# window_description: "" %>
+<%# permanent_open: true %>
+
+<%# + add modal controller (used for application layout by default) %>
+
+<%# Buttons panel example: %>
+<%# <div class="bg-gray-50 py-4 px-6 flex md:place-content-end gap-3"> %>
+  <%# <div data-action="click->modal#closeDialogByID" data-modal-id-param="example"> %>
+    <%# Cancel %>
+  <%# </div> %>
+  <%# f.submit "Enter" %>
+<%# </div> %>
+
+<dialog class="<%= "auto-open-dialog" if defined?(permanent_open) %> modal" id="<%= id %>">
+  <div class="fixed h-full w-full backdrop-blur-sm bg-black/10 top-0 left-0 z-[101]" data-action="click->modal#closeDialogByID" data-modal-id-param="<%= id %>"></div>
+  <div class="fixed z-[102] top-[50%] left-[50%]">
+    <div class="modal-window-container" style="transform: translate(-50%, -50%);">
+      <div class="bg-white rounded shadow overflow-y-auto">
+        <div class="flex items-start">
+          <div class="flex place-content-between w-full pt-6 pb-4 px-6">
+            
+            <div class="flex items-center">
+              <div class="flex flex-col gap-1">
+                <span class="font-semibold text-lg"><%= sanitize(title) %></span>
+                <% if defined?(window_description) %>
+                  <span class="text-gray-700 text-sm font-normal"><%= window_description %></span>
+                <% end %>
+              </div>
+            </div>
+
+            <div type="button" data-action="click->modal#closeDialogByID" data-modal-id-param="<%= id %>" class="hover:cursor-pointer rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 disabled:pointer-events-none mr-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-[24px] h-[24px]"><line x1="18" x2="6" y1="6" y2="18"></line><line x1="6" x2="18" y1="6" y2="18"></line></svg>
+              <span class="sr-only">Close</span>
+            </div>
+          </div>
+        </div>
+
+        <% if defined?(locals) %>
+          <%= render template: content, locals: %>
+        <% else %>
+          <%= render template: content %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</dialog>

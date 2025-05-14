@@ -1,0 +1,32 @@
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+dialog.modal[open] {
+  animation: fadeIn 200ms forwards;
+}
+
+dialog.modal[closing] {
+  animation: fadeOut 200ms forwards;
+}
+
+dialog.auto-open-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+dialog.auto-open-dialog:not([open]) {
+  display: block;
+  visibility: visible;
+  pointer-events: all;
+  opacity: 1;
+}
+
+dialog.auto-open-dialog {
+  visibility: visible;
+  pointer-events: all;
+  opacity: 1;
+}
+
+.modal-window-container {
+  @apply modal rounded-lg w-[512px] max-w-[94%];
+}

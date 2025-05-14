@@ -7,6 +7,17 @@ Rails.application.routes.draw do
 
   root 'books#index'
 
-  resources :books
+  resources :books do
+    resources :payments, only: [:create]
+  end
+
   resources :users, only: %i[show]
+
+  resources :payments do
+    collection do
+      post :callback
+      post :callback_page
+      get :callback_success
+    end
+  end
 end

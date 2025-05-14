@@ -13,5 +13,11 @@ application.register("sections", SectionsController)
 import ShowLimitController from "./show_limit_controller"
 application.register("show-limit", ShowLimitController)
 
+import ModalController from "./modal_controller"
+application.register("modal", ModalController)
+
+import PaymentController from "./payment_controller"
+application.register("payment", PaymentController)
+
 import { Multiselect } from '@wizardhealth/stimulus-multiselect'
 application.register('multiselect', Multiselect)
