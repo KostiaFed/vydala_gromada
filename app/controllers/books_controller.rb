@@ -12,7 +12,6 @@ class BooksController < ApplicationController
 
   def show
     @book = resource
-
     authorize @book
   end
 
@@ -31,7 +30,7 @@ class BooksController < ApplicationController
         end
       end
 
-      redirect_to book_path(current_user.books.last.id)
+      redirect_to @book
     else
       render 'new'
     end
@@ -39,10 +38,15 @@ class BooksController < ApplicationController
 
   def edit
     @book = resource
-
     authorize @book
-
     @genres = genres
+  end
+
+  def update
+    @book = resource
+    authorize @book
+    @book.update(book_params)
+    redirect_to @book
   end
 
   private

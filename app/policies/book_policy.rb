@@ -9,6 +9,11 @@ class BookPolicy < ApplicationPolicy
     owner?
   end
 
+  def update?
+    edit?
+  end
+
+
   private
 
   def owner?
