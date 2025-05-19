@@ -46,4 +46,5 @@ end
 
 group :production do
   gem 'sass-embedded'
+  gem 'uglifier'
 end
