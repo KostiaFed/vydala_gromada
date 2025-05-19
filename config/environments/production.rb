@@ -6,6 +6,9 @@ Rails.application.configure do
   config.consider_all_requests_local = false
 
   config.action_controller.perform_caching = true
+  config.relative_url_root = '/vydala_gromada'
+  config.action_controller.relative_url_root = '/vydala_gromada'
+  config.assets.prefix = '/vydala_gromada/assets'
 
   config.cache_store = :memory_store
 
