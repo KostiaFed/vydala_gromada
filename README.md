@@ -33,7 +33,7 @@ gpg2 --keyserver hkp://keyserver.ubuntu.com --recv-keys \
 source ~/.rvm/scripts/rvm
 
 # Install Ruby
-rvm reinstall 3.3.4 --with-openssl-dir=/usr
+rvm install 3.3.4 --with-openssl-dir=/usr
 ```
 
 ---
@@ -103,25 +103,3 @@ mailcatcher
 ```
 
 Mail will be available at: [http://localhost:1080](http://localhost:1080)
-
----
-
-## 🌐 Production
-
-In `config/environments/production.rb`, replace `example.com` with your domain:
-
-```ruby
-config.hosts << "your-domain.com"
-```
-
----
-
-## 📎 Apache + Passenger (optional)
-
-See the dedicated section in the documentation: [Apache Deployment](#apache--passenger-deployment)
-
----
-
-## 📄 License
-
-This project is MIT-licensed.
