@@ -16,8 +16,8 @@ test:
 
 staging:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  url: vg_stg
 
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %> 
+  url: vg_prod
