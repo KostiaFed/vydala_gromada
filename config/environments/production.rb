@@ -53,6 +53,10 @@ Rails.application.configure do
   # Deprecations and migrations
   config.active_support.report_deprecations = false
   config.active_record.dump_schema_after_migration = false
+
+  config.hosts.clear
+
+  config.app_generators.generators = false
 end
 
 Rails.application.routes.default_url_options[:host] = ENV.fetch('APP_HOST', 'example.com')
