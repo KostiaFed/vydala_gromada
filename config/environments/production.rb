@@ -6,6 +6,8 @@ Rails.application.configure do
   config.consider_all_requests_local = false
 
   config.action_controller.perform_caching = true
+  config.action_controller.relative_url_root = '/vydala_gromada'
+
   config.cache_store = :memory_store
 
   # Static files and assets
