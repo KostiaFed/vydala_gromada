@@ -20,6 +20,13 @@ Rails.application.configure do
 
   # SSL
   config.force_ssl = true
+  config.ssl_options = { redirect: { exclude: -> request { request.path.start_with?('/vydala_gromada') } } }
+
+  config.action_dispatch.trusted_proxies = [
+    '127.0.0.1',
+    IPAddr.new('::1'),
+    IPAddr.new('192.168.0.0/16'),
+  ]
 
   # Logging
   config.log_level = ENV.fetch('RAILS_LOG_LEVEL', 'info')
