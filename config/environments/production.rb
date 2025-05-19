@@ -10,7 +10,6 @@ Rails.application.configure do
 
   # Static files and assets
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
-  config.assets.js_compressor = :uglifier
   config.assets.compile = true
   config.assets.digest = true
   config.assets.css_compressor = nil
