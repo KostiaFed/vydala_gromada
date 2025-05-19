@@ -1,8 +1,9 @@
 ['Бойовик', 'Детектив', 'Дитяча література', 'Драма', 'Фантастика', 'Фентезі', 'Роман', 'Пригоди', "П'єса", 'Поезія',
  'Гумор'].each do |genre|
-  FactoryBot.create(:genre, name: genre)
+  Genre.create!(name: genre)
 end
-FactoryBot.create_list(:book, 32)
+
+FactoryBot.create_list(:book, 32) if Rails.env.development?
 
 Book.all.each do |book|
   2.times do
@@ -10,5 +11,10 @@ Book.all.each do |book|
   end
 end
 
-FactoryBot.create(:user, first_name: 'Костянтин', last_name: 'Федоренко', email: 'email@example.org',
-                         password: 'password', confirmed_at: DateTime.now)
+User.create!(
+  first_name: 'System',
+  last_name: 'Admin',
+  email: 'sysadmin@example.org',
+  password: 'password',
+  confirmed_at: DateTime.now
+)
