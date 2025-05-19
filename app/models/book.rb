@@ -35,4 +35,12 @@ class Book < ApplicationRecord
   accepts_nested_attributes_for :rewards, allow_destroy: true
 
   validates :cover, attached: true, content_type: ['image/png', 'image/jpeg']
+
+  def collected_amount
+    payments.where(status: 'approved').sum(:amount)
+  end
+
+  def collected_amount_uah
+    collected_amount / 100.0
+  end
 end

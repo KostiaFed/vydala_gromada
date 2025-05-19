@@ -25,6 +25,8 @@
           <span class="font-medium">Передзамовити</span>
         </div>
 
+        <p>Зібрано: <%= number_to_currency(@book.collected_amount_uah, unit: "₴", precision: 2) %></p>
+
         <%= render template: "/shared/dialog_window", locals: { content: '/books/donate', id: 'donate', title: 'Передзамовлення' } %>
       </div>
     </div>
