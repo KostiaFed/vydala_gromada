@@ -23,10 +23,10 @@
 FactoryBot.define do
   factory :payment do
     amount { 1 }
-    currency { "MyString" }
-    status { "MyString" }
-    order_id { "MyString" }
-    response { "" }
+    currency { 'MyString' }
+    status { 'MyString' }
+    order_id { 'MyString' }
+    response { '' }
     book { nil }
   end
 end

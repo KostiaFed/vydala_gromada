@@ -10,5 +10,5 @@ pin 'just-extend', to: 'https://ga.jspm.io/npm:just-extend@5.1.1/index.esm.js'
 
 pin_all_from 'app/javascript/controllers', under: 'controllers'
 pin_all_from 'app/javascript/helpers', under: 'helpers'
-pin "trix"
-pin "@rails/actiontext", to: "actiontext.esm.js"
+pin 'trix'
+pin '@rails/actiontext', to: 'actiontext.esm.js'

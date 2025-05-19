@@ -14,7 +14,7 @@
 #
 #  index_rewards_on_book_id  (book_id)
 #
-require "test_helper"
+require 'test_helper'
 
 class RewardTest < ActiveSupport::TestCase
   # test "the truth" do

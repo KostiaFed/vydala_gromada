@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:callback, :callback_page]
+  skip_before_action :verify_authenticity_token, only: %i[callback callback_page]
 
   def create
     @book = Book.find(params[:book_id])

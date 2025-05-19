@@ -20,7 +20,7 @@
 #
 #  fk_rails_...  (book_id => books.id)
 #
-require "test_helper"
+require 'test_helper'
 
 class PaymentTest < ActiveSupport::TestCase
   # test "the truth" do
