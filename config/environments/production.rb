@@ -6,9 +6,6 @@ Rails.application.configure do
   config.consider_all_requests_local = false
 
   config.action_controller.perform_caching = true
-  config.relative_url_root = '/vydala_gromada'
-  config.action_controller.relative_url_root = '/vydala_gromada'
-  config.assets.prefix = '/vydala_gromada/assets'
 
   config.cache_store = :memory_store
 
@@ -20,7 +17,6 @@ Rails.application.configure do
 
   # SSL
   config.force_ssl = true
-  config.ssl_options = { redirect: { exclude: -> request { request.path.start_with?('/vydala_gromada') } } }
 
   config.action_dispatch.trusted_proxies = [
     '127.0.0.1',
