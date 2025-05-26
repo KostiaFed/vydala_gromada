@@ -1,6 +1,10 @@
 //= require actiontext
 //= require trix
 
+@import 'actiontext';
+@import 'dialog_window';
+@import 'multiselect';
+
 .dropdown {
   position: relative;
   display: inline-block;

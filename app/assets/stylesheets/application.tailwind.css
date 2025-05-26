@@ -1,6 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import 'actiontext.css';
-@import 'dialog_window.css';
