@@ -31,6 +31,7 @@ class Book < ApplicationRecord
   has_many :genres, through: :books_genres
   has_many :rewards, dependent: :destroy
   has_many :payments, dependent: :nullify
+  has_many :comments, dependent: :nullify
 
   accepts_nested_attributes_for :rewards, allow_destroy: true
 

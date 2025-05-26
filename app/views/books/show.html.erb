@@ -49,14 +49,42 @@
     <div>
       <h5 class="text-2xl font-bold">Нагороди</h5>
       <div class="border border-gray-300 bg-gray-50 p-4">
-      <% @book.rewards.each do |reward|%>
-        <span class="p-2 border rounded-sm border-gromada-gray bg-gromada-lime"><%= "₴#{reward.donation_size}" %></span>
-        <hr class="my-2">
-        <h4 class="text-xl"><%= "Передзамовлення на #{reward.donation_size}₴" %></h4>
-        <p>Ти отримаєш:</p>
-        <li><%= "#{reward.item_name}" %></li>
-      <% end %>
+        <% @book.rewards.each do |reward|%>
+          <span class="p-2 border rounded-sm border-gromada-gray bg-gromada-lime"><%= "₴#{reward.donation_size}" %></span>
+          <hr class="my-2">
+          <h4 class="text-xl"><%= "Передзамовлення на #{reward.donation_size}₴" %></h4>
+          <p>Ти отримаєш:</p>
+          <li><%= "#{reward.item_name}" %></li>
+        <% end %>
       </div>
     </div>
+
+    <div>
+      <h5 class="text-2xl font-bold">Коментарі від спільноти</h5>
+
+      <div class="border border-gray-300 bg-gray-50 p-4 space-y-4">
+        <% @book.comments.each do |comment| %>
+          <div class="flex items-center space-x-2">
+            <div class="rounded-full bg-gromada-gray w-10 h-10"></div>
+            <span><%= comment.user.full_name %></span>
+          </div>
+          <p class="ml-12 text-gray-800"><%= comment.text %></p>
+        <% end %>
+      </div>
+
+      <div class="mt-6">
+        <%= form_with(model: [@book, Comment.new], local: true) do |form| %>
+          <div class="mb-4">
+            <%= form.label :text, "Залишити коментар", class: "block text-sm font-medium text-gray-700" %>
+            <%= form.text_area :text, rows: 4, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring focus:ring-opacity-50" %>
+          </div>
+
+          <div>
+            <%= form.submit "Надіслати", class: "cursor-pointer px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
   </div>
 </div>

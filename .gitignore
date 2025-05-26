@@ -45,3 +45,5 @@ yarn-debug.log*
 !/app/assets/builds/.keep
 .env
 config/credentials.yml.enc
+vendor/javascript/@hotwired--stimulus.js
+vendor/javascript/@wizardhealth--stimulus-multiselect.js
