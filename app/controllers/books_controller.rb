@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Controller for books
 class BooksController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
 
@@ -66,14 +69,9 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(
-      :book_url,
-      :name,
-      :short_description,
-      :video_url,
-      :cover,
-      :illustrations,
-      :long_description,
-      :language,
+      :book_url, :name, :short_description,
+      :video_url, :cover, :illustrations,
+      :long_description, :language,
       rewards_attributes: %i[description donation_size item_name picture]
     ).merge(user_id: current_user.id)
   end

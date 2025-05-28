@@ -1,34 +1,15 @@
+# frozen_string_literal: true
+
+# Controller for payments
 class PaymentsController < ApplicationController
+  before_action :set_book, only: %i[create]
   skip_before_action :verify_authenticity_token, only: %i[callback callback_page]
 
   def create
-    @book = Book.find(params[:book_id])
-    @payment = @book.payments.new(
-      amount: params[:amount].to_i * 100,
-      currency: 'UAH',
-      status: 'pending',
-      order_id: SecureRandom.hex(10)
-    )
+    @payment = @book.payments.new(payment_params)
 
     if @payment.valid?
-      @payment.save
-
-      payment_data = {
-        order_id: @payment.order_id,
-        merchant_id: ENV['FONDY_MERCHANT_ID'],
-        order_desc: "Donation for #{@book.name}",
-        amount: @payment.amount,
-        currency: @payment.currency,
-        response_url: callback_page_payments_url,
-        server_callback_url: callback_payments_url
-      }
-
-      signature = generate_signature(payment_data)
-
-      render json: {
-        url: 'https://pay.fondy.eu/api/checkout/redirect/',
-        params: payment_data.merge(signature:)
-      }
+      send_payment_data
     else
       redirect_to @book
     end
@@ -53,6 +34,19 @@ class PaymentsController < ApplicationController
 
   private
 
+  def set_book
+    @book = Book.find_by(id: params[:book_id])
+  end
+
+  def payment_params
+    {
+      amount: params[:amount].to_i * 100,
+      currency: 'UAH',
+      status: 'pending',
+      order_id: SecureRandom.hex(10)
+    }
+  end
+
   def generate_signature(data)
     sorted = data.sort.to_h
     string = [ENV['FONDY_SECRET_KEY']] + sorted.values
@@ -62,5 +56,26 @@ class PaymentsController < ApplicationController
   def valid_signature?(params)
     data = params.except(:signature).to_unsafe_h
     generate_signature(data) == params[:signature]
+  end
+
+  def send_payment_data
+    @payment.save
+
+    payment_data = {
+      order_id: @payment.order_id,
+      merchant_id: ENV['FONDY_MERCHANT_ID'],
+      order_desc: "Donation for #{@book.name}",
+      amount: @payment.amount,
+      currency: @payment.currency,
+      response_url: callback_page_payments_url,
+      server_callback_url: callback_payments_url
+    }
+
+    signature = generate_signature(payment_data)
+
+    render json: {
+      url: 'https://pay.fondy.eu/api/checkout/redirect/',
+      params: payment_data.merge(signature:)
+    }
   end
 end

@@ -1,14 +1,17 @@
+# frozen_string_literal: true
+
+# Controller for comments
 class CommentsController < ApplicationController
   before_action :set_book
 
-  def create    
+  def create
     @comment = @book.comments.build(comment_params)
     @comment.user = current_user
 
     if @comment.save
       redirect_to @book, notice: 'Коментар додано!'
     else
-      redirect_to @book, notice: 'Не вдалося зберегти коментар!'
+      redirect_to @book, notice: 'He вдалося зберегти коментар!'
     end
   end
 
